@@ -1,0 +1,13 @@
+<div>
+    <h1>Premiere Search</h1>
+
+    <app-show-favorites></app-show-favorites>
+
+    <app-premiere-item
+      *ngFor="let premiereItem of premieresObs | async"
+      [premiereItem]="premiereItem">
+    </app-premiere-item>
+
+    <button mat-button class="button" (click) = "searchNextPage()">Show More</button>
+
+</div>

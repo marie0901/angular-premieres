@@ -1,0 +1,12 @@
+<mat-card class="container" fxLayout="row" fxLayoutWrap>
+   <mat-card>
+     <img src="{{premiereItem.posterUrl}}" width="200" height="80">
+     <div class="caption">
+       <h3>{{premiereItem.title}}</h3>
+       <p>{{premiereItem.releaseDate}}</p>
+     </div>
+   <button mat-button (click) = (toggleFavorite())>
+     {{ premiereItem.isFavorite ? 'Remove from favorite' : 'Add to favorite'}}
+   </button>
+  </mat-card>
+ </mat-card>

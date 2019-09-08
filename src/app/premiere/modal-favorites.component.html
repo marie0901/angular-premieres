@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>Favorites</h1>
+<div class="form-group">
+    <mat-form-field>
+      <input matInput type="text" class="form-control" placeholder="Title Like"
+             style="width:300px" [(ngModel)]="searchTitle" />
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Date Later Then"
+             [(ngModel)]="searchDate" >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+</div>
+<div mat-dialog-content>
+  <app-premiere-item
+    *ngFor="let premiereItem of favorites | async | favoritesFilter:searchTitle:searchDate "
+    [premiereItem]="premiereItem">
+  </app-premiere-item>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+</div>
